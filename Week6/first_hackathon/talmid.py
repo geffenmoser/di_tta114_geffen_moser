@@ -24,8 +24,7 @@ class ChevrutaMaker:
                              interest_option SMALLINT NOT NULL,
                              slot_1 BOOLEAN NOT NULL,
                              slot_2 BOOLEAN NOT NULL,
-                             slot_3 BOOLEAN NOT NULL,
-                             attendance SMALLINT NOT NULL)'''
+                             slot_3 BOOLEAN NOT NULL)'''
         cursor.execute(create_table_command)
         connection.commit()
     def return_table(talmid_table):
@@ -43,7 +42,7 @@ class ChevrutaMaker:
         for x in range(len(yeshiva_list)):
             insert_table_command = f''' INSERT INTO {talmid_table} (first_name, 
             last_name, bochur, skill_level, interest_option, slot_1, slot_2, 
-            slot_3, attendance) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)'''
+            slot_3) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'''
             cursor.execute(insert_table_command, yeshiva_list[x])
             connection.commit()
         output = ChevrutaMaker.return_table(talmid_table)

@@ -27,7 +27,6 @@ def register_talmid():
     n_slot1 = True
     n_slot2 = True
     n_slot3 = True
-    n_attendance = 0
     while user_choice != 'n' or 'f':
         user_choice = input(
             "Please enter 'n' to add a talmid or 'f' to complete pairing:")
@@ -55,10 +54,8 @@ def register_talmid():
                 f"Please enter 'u' if {n_first} is Not Available for learning slot 3 or just press 'enter':")
             if is_slot3 == 'u':
                 n_slot3 = False
-            n_attendance = input(
-                f"In numbers, how many zmanim has {n_first} been a Talmid here?:")
             n_talmid = [n_first, n_last, n_bochur, n_skill, n_interest, n_slot1,
-                        n_slot2, n_slot3, n_attendance]
+                        n_slot2, n_slot3]
             yeshiva_list.append(n_talmid)
             break
         else:
