@@ -55,8 +55,9 @@ class ChevrutaMaker:
         cursor.execute(sort_chevrutas)
 
         group_chevrutas = f'''SELECT interest_option, slot_1, slot_2, slot_3, COUNT(*)
-        FROM {talmid_table} GROUP BY 
-        interest_option, slot_1, slot_2, slot_3'''
+        FROM {talmid_table} 
+        GROUP BY 
+        GROUPING SETS ((interest_option), (slot_1, slot_2, slot_3))'''
         cursor.execute(group_chevrutas)
 
         column_pair_id = f'''ALTER TABLE {talmid_table} ADD COLUMN chevruta_id INT'''

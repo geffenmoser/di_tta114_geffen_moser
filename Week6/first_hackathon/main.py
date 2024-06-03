@@ -42,6 +42,8 @@ def register_talmid():
             f"Please enter 'a' if {n_first} is married or 'b' if they are unmarried:")
         if is_bochur == 'a':
             n_bochur = False
+        elif is_bochur == 'b':
+            n_bochur = True
         n_skill = input(
             f"Please rank {n_first}'s skill level with a number from 1 (beginner) to 10 (highly advanced):")
         n_int = input(
@@ -65,15 +67,15 @@ def register_talmid():
             n_slot3 = False
         elif is_slot3 == '':
             n_slot3 = True
-        if n_int == 1:
+        if n_int == '1':
             n_interest = 'Gemara'
-        elif n_int == 2:
+        elif n_int == '2':
             n_interest = 'Halacha'
-        elif n_int == 3:
+        elif n_int == '3':
             n_interest = 'TaNaCh'
-        elif n_int == 4:
+        elif n_int == '4':
             n_interest = 'Chassidus'
-        elif n_int == 5:
+        elif n_int == '5':
             n_interest = 'Mussar'
         n_talmid = [n_first, n_last, n_bochur, n_skill, n_interest, n_slot1,
                     n_slot2, n_slot3]
