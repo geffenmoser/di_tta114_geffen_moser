@@ -21,7 +21,7 @@ class ChevrutaMaker:
                              last_name VARCHAR (100) NOT NULL,
                              bochur BOOLEAN NOT NULL,
                              skill_level SMALLINT NOT NULL,
-                             interest_option SMALLINT NOT NULL,
+                             interest_option VARCHAR(50) NOT NULL,
                              slot_1 BOOLEAN NOT NULL,
                              slot_2 BOOLEAN NOT NULL,
                              slot_3 BOOLEAN NOT NULL)'''
