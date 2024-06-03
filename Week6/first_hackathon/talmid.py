@@ -48,18 +48,18 @@ class ChevrutaMaker:
         output = ChevrutaMaker.return_table(talmid_table)
         print(f'Here is the filled table \n {output}')
         cursor.close()
-    def pair_chevrutas(talmid_table):
+    def sort_chevrutas(talmid_table):
         cursor = connection.cursor()
 
-        sort_chevrutas = f'''SELECT * FROM {talmid_table} ORDER BY skill_level'''
-        cursor.execute(sort_chevrutas)
+        sort_and_group_chevrutas = f'''
+                SELECT * FROM {talmid_table}
+                ORDER BY interest_option, skill_level, slot_1, slot_2, slot_3;
+                '''
 
-        group_chevrutas = f'''SELECT interest_option, slot_1, slot_2, slot_3, COUNT(*)
-        FROM {talmid_table} 
-        GROUP BY 
-        GROUPING SETS ((interest_option), (slot_1, slot_2, slot_3))'''
-        cursor.execute(group_chevrutas)
-
+        cursor.execute(sort_and_group_chevrutas)
+        connection.commit()
+        cursor.close()
+    def pair_chevrutas(talmid_table):
         column_pair_id = f'''ALTER TABLE {talmid_table} ADD COLUMN chevruta_id INT'''
         column_pair_set = f'''UPDATE {talmid_table} SET chevruta_id = FLOOR((
         talmid_id 

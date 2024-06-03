@@ -85,6 +85,7 @@ def register_talmid():
         table_name = input("What is the Yeshiva's name?:")
         ChevrutaMaker.create_table(table_name)
         ChevrutaMaker.fill_table(table_name, yeshiva_list)
+        ChevrutaMaker.sort_chevrutas(table_name)
         ChevrutaMaker.pair_chevrutas(table_name)
 
 register_talmid()
